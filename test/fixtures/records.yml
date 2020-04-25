@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  course: one
+  order_status: false
+  payment_status: false
+  exp_date: 2020-04-26 01:51:22
+
+two:
+  user: two
+  course: two
+  order_status: false
+  payment_status: false
+  exp_date: 2020-04-26 01:51:22
