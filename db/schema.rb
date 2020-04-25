@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200425103656) do
+ActiveRecord::Schema.define(version: 20200425113842) do
 
   create_table "courses", force: :cascade do |t|
     t.string "subject"
     t.integer "price"
     t.string "currency"
-    t.string "type"
+    t.string "course_type"
     t.boolean "published"
     t.string "url"
     t.text "intro"
