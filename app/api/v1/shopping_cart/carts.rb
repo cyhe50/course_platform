@@ -1,9 +1,6 @@
-module ShoppingCart
-    module V1
+module V1
+    module ShoppingCart
         class Carts < Grape::API
-            version 'v1', using: :path
-            format :json
-            prefix :api
 
             helpers do
                 def current_user
@@ -23,12 +20,15 @@ module ShoppingCart
                     present courses
                 end
 
-                # resource :records do
-                #     desc 'purchase a course and create a record'
-                #     params do
+                resource :purchases do
+                    desc 'purchase a course and create a record'
+                    # params do
 
-                #     end
-                # end
+                    # end
+                    get do
+
+                    end
+                end
             end
         end
     end

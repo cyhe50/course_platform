@@ -12,6 +12,9 @@ gem 'grape'
 gem 'grape-entity'
 gem 'grape_on_rails_routes'
 
+# auth
+gem 'bcrypt','~>3.1.7'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.7'
 # Use sqlite3 as the database for Active Record
