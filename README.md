@@ -1,6 +1,7 @@
 # README
 versions:
     - rails 5.1.1
+    <br>
     - ruby 2.6.3
     - bundler 1.17.3
 
