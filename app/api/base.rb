@@ -4,7 +4,7 @@ module Base
         prefix :api
         version 'v1', using: :path
 
-        mount V1::ShoppingCart::Carts => '/shoppingcart/'
-        mount V1::Auth::Authenticator => '/auth/'
+        mount V1::Orders
+
     end
 end
