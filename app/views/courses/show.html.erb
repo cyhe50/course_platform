@@ -1,0 +1,28 @@
+<%= content_for :sidebar do%>
+    course<%=@course.id%> <%= @course.subject%>
+<% end %>
+
+<div class="container">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="jumbotron">
+            <h3 class="display-4"><%= @course.subject%></h3>
+            <p>url : <a href="#"><%= @course.url%></a></p>
+
+            <p>課程類型：<span class="badge badge-info"><%= @course.course_type%></span></p>
+            <p>上次更改時間：<span class="badge badge-dark"><%= @course.updated_at.strftime("%b %d, %Y")%></span></p>
+            <p>有效期限：<%= @course.exp_time%>天</p>
+            <p>$ <%= @course.price%> <%= @course.currency%></p>
+            <p>是否上架：<%= @course.published%></p>
+
+            <hr class="my-4">
+            <h5>課程介紹</h5>
+            <p><%= @course.intro%></p>
+
+        </div>
+        <div class="panel-footer">By 'who???'</div>
+      </div>
+    </div>
+    
+
+  </div>

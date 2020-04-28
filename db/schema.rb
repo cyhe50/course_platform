@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200425203032) do
+ActiveRecord::Schema.define(version: 20200428151654) do
 
   create_table "courses", force: :cascade do |t|
     t.string "subject"
-    t.integer "price"
-    t.string "currency"
+    t.integer "price", default: 1
+    t.string "currency", default: "NTD"
     t.string "course_type"
     t.boolean "published"
-    t.string "url"
+    t.string "url", default: "/"
     t.text "intro"
-    t.integer "exp_time"
+    t.integer "exp_time", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

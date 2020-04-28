@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails_admin'
-
+gem 'bootstrap'
 # grape
 gem 'grape'
 gem 'grape-entity'

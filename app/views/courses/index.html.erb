@@ -1,0 +1,38 @@
+<%= content_for :sidebar do%>
+    index
+<%end%>
+
+  <div class="container">
+      <div class="page-header">
+        <form class="form-inline my-2 my-lg-0">
+          <h1>Courses&nbsp;&nbsp;</h1>
+          <div><%= link_to 'Add course', :new_course, class: "btn btn-primary"%></div>
+        </form>
+      </div>
+  </div>
+  <div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+            <th>id</th>
+            <th>Sub</th>
+            <th>type</th>
+            <th>show</th>
+            <th>edit</th>
+            <th>delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @courses.each do |course|%>
+        <tr>
+            <td><%= course.id%></td>
+            <td><%= course.subject%></td>
+            <td><%= course.course_type%></td>
+            <td><%= link_to 'Show', course_path(course) %></td>
+            <td><%= link_to 'Edit', edit_course_path(course) %></td>
+            <td><%= link_to 'Destroy', course_path(course),method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </div>
