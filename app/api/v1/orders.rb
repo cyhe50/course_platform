@@ -7,7 +7,7 @@ module V1
         #     raise 'invalid user id'
         # end
 
-        resource :order do
+        resource :orderrecord do
             desc 'get courses list for current_user'
             params do
                 requires :user_id
