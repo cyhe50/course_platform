@@ -18,9 +18,8 @@
             <hr class="my-4">
             <h5>課程介紹</h5>
             <p><%= @course.intro%></p>
-
         </div>
-        <div class="panel-footer">By 'who???'</div>
+        <div class="panel-footer"><%= link_to 'Back', courses_path , class: "btn btn-light"%></div>
       </div>
     </div>
     
