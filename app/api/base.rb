@@ -4,9 +4,8 @@ module Base
         prefix :api
         version 'v1', using: :path
 
-        mount V1::Orders
-        mount V1::CoursesManagement
-        mount V1::CoursesOriginal
+        mount V1::OrdersApi
+        mount V1::CoursesOriginalApi
 
     end
 end

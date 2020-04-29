@@ -1,5 +1,5 @@
 module V1
-    class Orders < Grape::API
+    class OrdersApi < Grape::API
 
         # begin
         #     current_user = User.find(params[:user_id])

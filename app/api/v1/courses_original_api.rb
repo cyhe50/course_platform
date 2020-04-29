@@ -1,10 +1,10 @@
 module V1
-    class CoursesOriginal < Grape::API
+    class CoursesOriginalApi < Grape::API
 
-        resources :original do
-            resources :courses do
+        resource :original do
+            resource :courses do
 
-                desc 'Read all'
+                desc 'Read all in published'
                 get do
                     courses = Course.where(published: true)
                     present courses
@@ -18,9 +18,12 @@ module V1
                         present course
                     end
 
-                    desc 'buy a courses'
+                    desc 'make order'
                     post do
-                        # Record.create()
+                        # current_user = User.find()
+                        # course = Course.find(params[:id])
+                        # Record.create(user: current_user, course: course, order_status: 0, payment_status: 0, exp_date: Time.zone.now + course.exp_time.days )
+
                     end
                 end
             end
