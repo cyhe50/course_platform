@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CoursePlatform</title>
+    <title><%= yield :sidebar%></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,27 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href= '/' >Home</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <% if current_manager %>
+              <%= link_to('登出', destroy_manager_session_path, :method => :delete, class: "btn btn-outline-success my-2 my-sm-0") %>
+          <% end %>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container">
+        <p class="alert" style="color:red"><%= alert %></p>
+      <%= yield %>
+    </div>
   </body>
 </html>
+
+
