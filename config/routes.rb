@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :managers
   root "courses#home"
   scope :management do
     resources :courses

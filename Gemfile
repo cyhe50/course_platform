@@ -7,6 +7,7 @@ end
 
 gem 'rails_admin'
 gem 'bootstrap'
+gem 'devise'
 # grape
 gem 'grape'
 gem 'grape-entity'

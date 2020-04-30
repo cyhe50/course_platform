@@ -18,11 +18,15 @@
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <% if current_manager %>
+              <%= link_to('登出', destroy_manager_session_path, :method => :delete, class: "btn btn-outline-success my-2 my-sm-0") %>
+          <% end %>
         </form>
       </div>
     </nav>
+
     <div class="container">
+        <p class="alert" style="color:red"><%= alert %></p>
       <%= yield %>
     </div>
   </body>

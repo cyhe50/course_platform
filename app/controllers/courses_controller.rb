@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-
+    before_action :authenticate_manager!, except: :home
     def home
 
     end
