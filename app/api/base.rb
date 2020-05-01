@@ -4,8 +4,8 @@ module Base
         prefix :api
         version 'v1', using: :path
 
-        mount V1::OrdersApi
-        mount V1::CoursesOriginalApi
-
+        # courses_original_api , orders_api are mounted in user_auth_api
+        mount V1::UserAuthApi
+        mount V1::Authentication::Sessions
     end
 end

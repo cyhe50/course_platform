@@ -20,10 +20,8 @@ module V1
 
                     desc 'make order'
                     post do
-                        # current_user = User.find()
-                        # course = Course.find(params[:id])
-                        # Record.create(user: current_user, course: course, order_status: 0, payment_status: 0, exp_date: Time.zone.now + course.exp_time.days )
-
+                        course = Course.find(params[:id])
+                        Record.create(user: current_user, course: course, order_status: 0, payment_status: 0, exp_date: Time.zone.now + course.exp_time.days )
                     end
                 end
             end

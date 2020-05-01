@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(username: 'janice', password: 'qazwsx')
+User.create(email: 'user@test.com', password: 'okmijn')
 Manager.create(email: 'q@test.com', password: 'qazwsx')
 
 Course.create(subject: 'math', price: 123, currency: 'NTD', course_type: 'calculus', published: 0, url: '/', intro: 'An calculus course', exp_time: 30)
