@@ -4,16 +4,15 @@ module V1
         resource :orderrecord do
             desc 'get courses list for current_user'
             get do
-
                 courses = current_user.courses.all
-                present courses
+                present courses, with: V1::Entities::OrdersEntity
             end
             
             desc 'get a specific course for current_user'
             route_param :course_id do
                 get do
                     course =  current_user.courses.find(params[:course_id])
-                    present course, with: V1::Entities::OrdersEntity
+                    present course, with: V1::Entities::SingleOrderEntity
                 end
             end
 
@@ -24,13 +23,13 @@ module V1
                 end
                 get :course_type do
                     courses = current_user.courses.where(course_type: params[:type] )
-                    present courses
+                    present courses, with: V1::Entities::OrdersEntity
                 end
 
                 desc 'get all unexpired courses'
                 get :unexpired do
                     courses = current_user.courses.where('exp_date >= ?', Time.now)
-                    present courses
+                    present courses, with: V1::Entities::OrdersEntity
                 end
 
             end

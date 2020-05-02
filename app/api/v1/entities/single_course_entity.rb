@@ -1,14 +1,14 @@
 module V1
     module Entities
-        class OrdersEntity < Grape::Entity
+        class SingleCourseEntity < Grape::Entity
             expose :id
             expose :subject
             expose :price
             expose :currency
             expose :course_type
-            expose :published
             expose :url
             expose :intro
-        end
+            expose :exp_time
+        end     
     end
 end

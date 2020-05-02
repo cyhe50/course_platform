@@ -13,6 +13,11 @@ class User < ApplicationRecord
       self.authentication_token ||= generate_authtication_token
     end
 
+    def reset_authentication_token
+      self.authentication_token = nil
+      self.save
+    end
+
     private
 
     def generate_authtication_token

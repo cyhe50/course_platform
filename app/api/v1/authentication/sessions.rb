@@ -5,9 +5,37 @@ module V1
             format :json
             prefix :api
 
+            helpers do
+                def permitted_params
+                    @permitted_params ||= declared(params, include_missing: false, include_parent_namespaces: false)
+                    # ActionController::Parameters.new(declared(params, include_missing: false)).permit!   
+                end
+            end
+            resource :signup do
+                
+                desc 'check if user is valid'
+                params do
+                    requires :user, type: Hash do
+                        requires :email, type: String
+                        requires :password, type: String
+                        requires :password_confirmation, type: String
+                    end
+                end
+                post do
+                    user = User.new(permitted_params[:user])
+                    if user.save
+                        header 'access_token', user.ensure_authentication_token
+                        {status: 'sign up !'}.to_json   
+                    else
+                        user.errors.messages            
+                    end
+                end
+
+            end
+
             resource :sessions do
 
-                desc "Authenticate user and return user object / access token"
+                desc "Authenticate user and return user object / access token (log in)"
                 params do
                     requires :email, type: String, desc: "User email"
                     requires :password, type: String, desc: "User password"
@@ -32,22 +60,22 @@ module V1
                     else
                         raise 'error authentication token' if !user.ensure_authentication_token
                         user.save
-                        {status: 'ok', token: user.authentication_token}.to_json
+
+                        header 'access_token', user.ensure_authentication_token
+                        {status: 'log in !'}.to_json
                     end
                 end
 
-                desc "Destroy the access token"
-                params do
-                    requires :access_token, type: String, desc: "User Access Token"
-                end
-                delete ':access_token' do
-                    access_token = params[:access_token]
+                desc "Destroy the access token (log out)"
+                delete 'logout' do
+                    access_token = headers['Access-Token']
                     user = User.where(authentication_token: access_token).first
                     if user.nil?
                         error!({error_code: 404, error_message: "Invalid access token."}, 401)
                         return
                     else
                         user.reset_authentication_token
+                        {status: 'log out !'}.to_json
                     end
                     
                 end
