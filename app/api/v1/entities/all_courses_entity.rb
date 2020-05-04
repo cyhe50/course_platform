@@ -4,6 +4,7 @@ module V1
             expose :id
             expose :subject
             expose :course_type
+            expose :intro
         end
     end
 end

@@ -27,7 +27,7 @@ module V1
                         header 'access_token', user.ensure_authentication_token
                         {status: 'sign up !'}.to_json   
                     else
-                        user.errors.messages            
+                        error!({error_code: 401, error_message: user.errors.messages}, 401)            
                     end
                 end
 
