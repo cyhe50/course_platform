@@ -44,7 +44,7 @@ module V1
                         end
                         record = Record.new(user: current_user, course: @course, order_status: 1, payment_status: 1, exp_date: Time.zone.now + @course.exp_time.days + 8.hours )
                         if record.save
-                            present record.course_id
+                            present record.id.to_s
                         else
                             error!({error_code: 401, error_message: record.errors.messages}, 401)            
                         end

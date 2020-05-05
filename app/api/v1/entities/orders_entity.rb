@@ -1,6 +1,6 @@
 module V1
     module Entities
-        class OrdersEntity < Grape::Entity
+        class CourseEntity < Grape::Entity
             expose :id
             expose :subject
             expose :price
@@ -9,6 +9,19 @@ module V1
             expose :published
             expose :url
             expose :intro
+        end
+    end
+end
+
+module V1
+    module Entities
+        class OrdersEntity < Grape::Entity
+            expose :id
+            expose :order_status
+            expose :payment_status
+            expose :exp_date
+            expose :created_at
+            expose :course, using: CourseEntity
         end
     end
 end
