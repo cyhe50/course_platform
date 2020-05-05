@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe V1::Orders do
+describe "Api::OrdersRequest" do
     context 'GET /api/v1/orderrecord' do
         it 'returns courses ordered by current_user' do
             user = User.create(username: 'spec_test',password: '123')
